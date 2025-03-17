@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Get the commit message file
+COMMIT_MSG_FILE=$1
+
+# Run commitlint using local installation
+if [ -f "./node_modules/.bin/commitlint" ]; then
+  ./node_modules/.bin/commitlint --edit "$COMMIT_MSG_FILE"
+else
+  echo "Error: commitlint not found in node_modules. Please install it first."
+  exit 1
+fi
