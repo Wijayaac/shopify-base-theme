@@ -1,0 +1,122 @@
+/* Utility Styles */
+ul,
+nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li,
+p {
+	margin-bottom: 1rem;
+}
+
+li:last-child,
+p:last-child {
+	margin-bottom: 0;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+a {
+	color: inherit;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/* Top Bar */
+.top-bar {
+	background-color: var(--light-brown);
+	padding: 10px 20px;
+	text-align: center;
+}
+
+/* Header */
+.header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	background-color: white;
+}
+
+.header-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.header li {
+	margin-bottom: 0;
+}
+
+.header a {
+	text-decoration: none;
+}
+
+/* Menu styling */
+.menu {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.menu-link--parent a {
+	height: 32px;
+	display: inline-flex;
+	align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+	.menu-link--parent a {
+		height: 84px;
+	}
+
+}
+
+/* Temporary menu styling */
+.dropdown-child,
+.dropdown-grandchild {
+	display: none;
+	position: absolute;
+	background-color: white;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
+
+/* Header icons */
+.icons nav {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.header-icon {
+	width: 34px;
+	height: 34px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+.header-icon path {
+	stroke-width: 3px;
+}

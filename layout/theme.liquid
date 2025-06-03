@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% comment %} Fonts pre-connect {% endcomment %}
+    {%- if settings.header_font.system? and settings.body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endif -%}
+
+    <title>
+      {{ page.title }}
+      |
+      {{ shop.name }}
+    </title>
+    {{ content_for_header }}
+
+    {% liquid
+      assign body_font_bold = settings.body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = settings.body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic'
+    %}
+
+    {%- style -%}
+      {{ settings.body_font | font_face: font_display: 'swap'}}
+      {{ body_font_bold | font_face: font_display: 'swap'}}
+      {{ body_font_italic | font_face: font_display: 'swap'}}
+      {{ body_font_bold_italic | font_face: font_display: 'swap'}}
+      {{ settings.header_font | font_face: font_display: 'swap'}}
+
+      :root{
+      	--font-body-family: {{ settings.body_font.family }};
+      	--font-body-style: {{ settings.body_font.style }};
+      	--font-body-weight: {{ settings.body_font.weight }};
+
+      	--font-header-family: {{ settings.header_font.family }};
+      	--font-header-style: {{ settings.header_font.style }};
+      	--font-header-weight: {{ settings.header_font.weight }};
+        --light-brown: #E8E4DF;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: 10px;
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 0.06rem;
+        line-height: 100%;
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+    {%- endstyle -%}
+  </head>
+  <body>
+    {%- section 'header' -%}
+    {{ content_for_layout }}
+  </body>
+</html>

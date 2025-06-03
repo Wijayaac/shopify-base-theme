@@ -1,0 +1,27 @@
+[{
+"name": "theme_info",
+"theme_name": "Mila",
+"theme_author": "Wijaya",
+"theme_version": "1.0.0",
+"theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes\/os20\/themes-by-shopify\/dawn",
+"theme_support_email": "wijayaac25@gmail.com"
+},
+{
+	"name": "Theme Settings",
+	"settings": [
+		{
+			"type": "font_picker",
+			"label": "Header Font",
+			"id": "header_font",
+			"default": "libre_caslon_text_n4",
+		},
+		{
+			"type": "font_picker",
+			"label": "Body Font",
+			"id": "body_font",
+			"default": "figtree_n4",
+		},
+	]
+
+}
+]

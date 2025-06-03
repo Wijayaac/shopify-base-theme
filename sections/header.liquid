@@ -1,0 +1,75 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<header class="header" id="main-header">
+  <div class="top-bar">
+    <ul>
+      <li>Black friday cyber monday sales!</li>
+    </ul>
+  </div>
+  <div class="header-wrapper">
+    <div class="logo">
+      <a href="{{ shop.url }}">
+        {{ 'menu-logo.svg' | inline_asset_content }}
+      </a>
+    </div>
+    <div class="menu-wrapper">
+      <nav class="menu">
+        {% for link in linklists['demo-menu'].links %}
+          <li class="menu-link menu-link--parent">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+
+            {% if link.links.size > 0 %}
+              <ul class="menu dropdown-child">
+                {% for child_link in link.links %}
+                  <li class="menu-link">
+                    <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+
+                    {% if child_link.links.size > 0 %}
+                      <ul class="menu dropdown-grandchild">
+                        {% for grandchild_link in child_link.links %}
+                          <li class="menu-link">
+                            <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="icons">
+      <nav>
+        <li>
+          <a href="{{ routes.account_url }}">Account</a>
+        </li>
+        <li>
+          <button class="header-icon">
+            <span class="visually-hidden">Search</span>
+            {{ 'icon-search.svg' | inline_asset_content }}
+          </button>
+        </li>
+        <li>
+          <button class="header-icon">
+            <span class="visually-hidden">Cart</span>
+            {{ 'icon-cart.svg' | inline_asset_content }}
+          </button>
+        </li>
+      </nav>
+    </div>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Header",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

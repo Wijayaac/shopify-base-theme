@@ -1,0 +1,12 @@
+{
+	"wrapper": "div#index",
+	"name": "Home",
+	"sections": {
+		"main": {
+			"type": "main-page",
+		}
+	},
+	"order": [
+		"main"
+	]
+}
